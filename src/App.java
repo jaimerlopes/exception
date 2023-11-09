@@ -4,52 +4,61 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import entities.Company;
 import entities.ImportedProducted;
+import entities.Individual;
 import entities.Product;
+import entities.TaxPayer;
 import entities.usedProduct;
 
 public class App {
+    
+    /** 
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
     
     Scanner sc=new Scanner(System.in);
     
-    List<Product> listProdcut=new ArrayList<>();
-        SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/YYYY");
+    List<TaxPayer> taxPayersL=new ArrayList<>();
+    SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/YYYY");
     
-    System.out.print("Insert how many products you want insert");
+    System.out.print("How many persons do you want to insert");
     
-    Integer numberOfProducts=sc.nextInt();
-    sc.nextLine();
-
-    for(int i=0; i<numberOfProducts;i++){
+    Integer numberOfPersons=sc.nextInt();
 
 
-        System.out.print("Name of the product - ");
-        String nameOfProduct = sc.nextLine();
-        System.out.print("Price of product ");
-        Double priceOfProduct =sc.nextDouble();
-        System.out.print("Insert Type of Product( C- new / U - used / I - Imported )");
-        char typeProduct=sc.next().charAt(0);
-        sc.nextLine();
+    for(int i=0; i<numberOfPersons;i++){
+sc.nextLine();
 
-        if(typeProduct=='I'){
+        System.out.println("Name of person - ");
+        String nameOfPerson = sc.nextLine();
+        System.out.println("Anual Income");
+        Double annualIncome =sc.nextDouble();
+        System.out.println("Insert Type of Person( C- Company /  I - Individual )");
+        char typePerson=sc.next().charAt(0);
 
-            System.out.print("Insert customs Fee");
-            Double customsFee=sc.nextDouble(); 
-            listProdcut.add(new ImportedProducted(nameOfProduct,priceOfProduct,customsFee));
+        if(typePerson=='I'){
 
-        }else if (typeProduct=='U'){
-            System.out.print("Manufactorin Data - ");
-            Date manufactoringData=sdf.parse(sc.nextLine());
-            listProdcut.add(new usedProduct(nameOfProduct,priceOfProduct,manufactoringData));
+            System.out.println("Insert Health Expenditures");
+            Double healthExpenditures=sc.nextDouble(); 
+            taxPayersL.add(new Individual(nameOfPerson,annualIncome,healthExpenditures));
+
+        }else if (typePerson=='C'){
+            System.out.println("Numbers os persons in the company");
+            Integer numberofPersonsInComapny=sc.nextInt();
+            taxPayersL.add(new Company(nameOfPerson,annualIncome,numberofPersonsInComapny));
+        }else{
+
+            System.out.println("Error");
         }
-      //
 
     }
 
-    for(Product temp:listProdcut){
+    for(TaxPayer temp:taxPayersL){
 
-        System.out.println(temp.priceTag());
+        System.out.printf("Taxes PaiD = %.3f",temp.tax());
     }
 
     

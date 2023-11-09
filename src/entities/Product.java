@@ -12,10 +12,18 @@ public class Product {
         this.price = price;
     }
    
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
    
+    
+    /** 
+     * @return Double
+     */
     public Double getPrice() {
         return price;
     }

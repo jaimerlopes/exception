@@ -10,11 +10,19 @@ public ImportedProducted(String name, Double price, Double customsFee) {
 }
 
 
+
+/** 
+ * @return Double
+ */
 public Double getCustomsFee() {
     return customsFee;
 }
 
 
+
+/** 
+ * @param customsFee
+ */
 public void setCustomsFee(Double customsFee) {
     this.customsFee = customsFee;
 }

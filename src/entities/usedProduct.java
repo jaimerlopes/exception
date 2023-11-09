@@ -13,15 +13,27 @@ public class usedProduct extends Product{
         this.manufactoringData = manufactoringData;
     }
 
+    
+    /** 
+     * @return Date
+     */
     public Date getManufactoringData() {
         return manufactoringData;
     }
 
+    
+    /** 
+     * @param manufactoringData
+     */
     public void setManufactoringData(Date manufactoringData) {
         this.manufactoringData = manufactoringData;
     }
 
 
+
+/** 
+ * @return String
+ */
 @Override
 public  String priceTag(){
 

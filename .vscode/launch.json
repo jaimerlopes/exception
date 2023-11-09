@@ -5,6 +5,13 @@
             "name": "App",
             "request": "launch",
             "mainClass": "App",
+            "projectName": "Abstract_b644011f"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
             "projectName": "Polimorphismo_2bd4463b"
         },
         {
